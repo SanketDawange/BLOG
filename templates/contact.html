@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@100&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="logo"><a href="/" class="link-logo">SOLVED BY SD</a></h1>
+        <div class="navbar">
+            <ul>
+                <li><a class="links" href="/">HOME</a></li>
+                <li><a class="links" href="/posts">POSTS</a></li>
+                <li><a class="links" id="active-link" href="/contact">CONTACT</a></li>
+                <li><a class="links" href="/about">ABOUT</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="form">
+            <div class="msg">
+                <h3>{{ msg }}</h3>
+            </div>
+            <h1 style="margin-left: 15%;" >Feel free to contact us</h1>
+            <form action="contact" method="post">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Enter your name" autofocus required>
+                <br>
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <br>
+                <input type="text" name="message" placeholder="Enter your message" required>
+                <br>
+                <input style="width: 515px;"  class="active-btn" type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+
+    </div>
+</body>
+
+</html>
